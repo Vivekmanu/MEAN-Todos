@@ -1,16 +1,16 @@
 {
   "name": "meantodos",
   "version": "1.0.0",
-  "description": "f22labs Test mod 1 . This app uses MEAN i.e Mongo Express Angular and Node to develop a sigle todos app , this app has an exception  for multi todos as provided in test description , as I found it a bit difficult to implement multilists . For DND and multilist functionality I utilized JquerryUI provided in the next mod 2 for the project. ",
+  "description": "Simple todos app that runs on the MEAN stack",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Vivek Mohan Singh (131409)",
+  "author": "",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.15.2",
-    "ejs": "^2.5.5",
+    "ejs": "^2.5.2",
     "express": "^4.14.0",
     "mongojs": "^2.4.0"
   }
