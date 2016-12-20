@@ -1,13 +1,13 @@
 var express = require('express');
 var router = express.Router();
 var mongojs = require('mongojs');
-var db = mongojs('mongodb://admin:admin@ds041516.mlab.com:41516/meantodos_brad_dev',['todos']);
+var db = mongojs('mongodb://vivek:2794@ds141118.mlab.com:41118/meantodos_f22testmod1',['todos']);
 
 // Get Todos
 router.get('/todos', function(req, res, next){
     db.todos.find(function(err, todos){
         if(err){
-           res.send(err); 
+           res.send(err);
         } else {
            res.json(todos);
         }
@@ -20,7 +20,7 @@ router.get('/todo/:id', function(req, res, next){
         _id: mongojs.ObjectId(req.params.id)
     }, function(err, todo){
         if(err){
-           res.send(err); 
+           res.send(err);
         } else {
            res.json(todo);
         }
@@ -36,9 +36,9 @@ router.post('/todo', function(req, res, next){
             "error": "Invalid Data"
         });
     } else {
-        db.save(todo, function(err, result){
+        db.todos.save(todo, function(err, result){
             if(err){
-                res.send(err); 
+                res.send(err);
             } else {
                 res.json(result);
             }
@@ -50,15 +50,15 @@ router.post('/todo', function(req, res, next){
 router.put('/todo/:id', function(req, res, next){
     var todo = req.body;
     var updObj = {};
-    
+
     if(todo.isCompleted){
        updObj.isCompleted = todo.isCompleted;
     }
-    
+
     if(todo.text){
         updObj.text = todo.text;
     }
-    
+
     if(!updObj){
         res.status(400);
         res.json({
@@ -69,7 +69,7 @@ router.put('/todo/:id', function(req, res, next){
             _id: mongojs.ObjectId(req.params.id)
         },updObj, {}, function(err, result){
             if(err){
-                res.send(err); 
+                res.send(err);
             } else {
                 res.json(result);
             }
@@ -83,7 +83,7 @@ router.delete('/todo/:id', function(req, res, next){
         _id: mongojs.ObjectId(req.params.id)
     },'', function(err, result){
         if(err){
-            res.send(err); 
+            res.send(err);
         } else {
             res.json(result);
         }
